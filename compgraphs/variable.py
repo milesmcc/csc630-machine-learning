@@ -29,6 +29,15 @@ class Variable():
     def eval_(self, values):
         return values[self]
 
+    def ranged_eval(self, values, min, max):
+        value = self.eval_(values)
+        assert min < max
+        if value <= min:
+            value = np.nextafter(min, max)
+        if value >= max:
+            value = np.nextafter(max, min)
+        return value
+
     def grad(self, values):
         self_location = self.order(values)
         pre_self = self_location
