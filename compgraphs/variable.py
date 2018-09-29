@@ -62,7 +62,7 @@ class Variable():
         if isinstance(var, Variable):
             return Variable(eval_=lambda values: math.log(var.ranged_eval(values, min=0, precondition=lambda k: k >= 0)),
                             # the precondition for eval_ deals with floating point rounding errors while still showing errors
-                            grad=lambda values: (var.eval_(values) ** -1)*var.grad(values),
+                            grad=lambda values: (var.ranged_eval(values, min=0, precondition=lambda k: k >= 0) ** -1)*var.grad(values),
                             representation=lambda: "ln(%s)" % str(var))
         if isinstance(var, (float, int)):
             return math.log(var)
