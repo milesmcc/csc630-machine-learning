@@ -105,7 +105,7 @@ class Variable():
             return NotImplemented
         if isinstance(other, (float, int)):
             return Variable(eval_=lambda values: self.eval_(values) ** other,
-                            grad=lambda values: (other)*(self.grad(values) ** (other - 1))*self.grad(values),
+                            grad=lambda values: (other)*(self.eval_(values) ** (other - 1))*self.grad(values),
                             representation=lambda: "(%s ** %s)" % (str(self), str(other)))
 
     # __rpow__ not implemented; we simply don't have the rules for it
