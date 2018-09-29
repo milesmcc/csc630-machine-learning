@@ -110,14 +110,3 @@ class Variable():
         as it would be returned by the gradient function, for example."""
         order = sorted([hash(key) for key in values.keys()])
         return order.index(hash(self))
-
-if __name__ == "__main__":
-    # test
-    a = Variable(name="a")
-    b = Variable(name="b")
-    c = Variable(name="c")
-    z = Variable.exp(a + b**2) + 3 * Variable.log(27 - a * b * c)
-    # Evaluate the function and its gradient at the point (x_1, x_2, x_3) = (3, 1, 7):
-    print(z.eval_({a: 3, b: 1, c: 7}))
-    print(z.grad({a: 3, b: 1, c: 7}))
-    print(z)
