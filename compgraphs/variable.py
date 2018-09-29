@@ -29,13 +29,16 @@ class Variable():
     def eval_(self, values):
         return values[self]
 
-    def ranged_eval(self, values, min, max):
+    def ranged_eval(self, values, min=None, max=None, precondition=None):
+        """Exclusive ranged evaluation, with optional precondition"""
         value = self.eval_(values)
-        assert min < max
-        if value <= min:
-            value = np.nextafter(min, max)
-        if value >= max:
-            value = np.nextafter(max, min)
+        if precondition != None:
+            if not precondition(value):
+                raise Exception("precondition not met")
+        if min != None and value <= min:
+            value = np.nextafter(min, min + 1)
+        if max != None and value >= max:
+            value = np.nextafter(max, max - 1)
         return value
 
     def grad(self, values):
@@ -57,7 +60,8 @@ class Variable():
     @staticmethod
     def log(var):
         if isinstance(var, Variable):
-            return Variable(eval_=lambda values: math.log(var.eval_(values)),
+            return Variable(eval_=lambda values: math.log(var.ranged_eval(values, min=0, precondition=lambda k: k >= 0)),
+                            # the precondition for eval_ deals with floating point rounding errors while still showing errors
                             grad=lambda values: (var.eval_(values) ** -1)*var.grad(values),
                             representation=lambda: "ln(%s)" % str(var))
         if isinstance(var, (float, int)):
