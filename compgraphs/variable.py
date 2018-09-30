@@ -34,7 +34,7 @@ class Variable():
         value = self.eval_(values)
         if precondition != None:
             if not precondition(value):
-                raise Exception("precondition not met")
+                raise Exception("precondition not met (value=%s)" % value)
         if min != None and value <= min:
             value = np.nextafter(min, min + 1)
         if max != None and value >= max:
