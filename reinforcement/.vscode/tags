@@ -1,0 +1,62 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+action	../random_movement_car.py	/^    action = env.action_space.sample()$/;"	kind:variable	line:8
+action	../random_movement_mountain.py	/^    action = env.action_space.sample()$/;"	kind:variable	line:8
+actions	../cart_pole_ppo.py	/^    actions=env.actions,$/;"	kind:variable	line:18
+actions	../mountain_car_deep_q.py	/^    actions=env.actions,$/;"	kind:variable	line:18
+agent	../cart_pole_ppo.py	/^agent = PPOAgent($/;"	kind:variable	line:16
+agent	../mountain_car_deep_q.py	/^agent = PPOAgent($/;"	kind:variable	line:16
+ar	../cart_pole_ppo.py	/^    ar=np.mean(runner.episode_rewards[-100:]))$/;"	kind:variable	line:56
+ar	../mountain_car_deep_q.py	/^    ar=np.mean(runner.episode_rewards[-100:]))$/;"	kind:variable	line:56
+baseline	../cart_pole_ppo.py	/^    baseline=None,$/;"	kind:variable	line:30
+baseline	../mountain_car_deep_q.py	/^    baseline=None,$/;"	kind:variable	line:30
+baseline_mode	../cart_pole_ppo.py	/^    baseline_mode=None,$/;"	kind:variable	line:29
+baseline_mode	../mountain_car_deep_q.py	/^    baseline_mode=None,$/;"	kind:variable	line:29
+baseline_optimizer	../cart_pole_ppo.py	/^    baseline_optimizer=None,$/;"	kind:variable	line:31
+baseline_optimizer	../mountain_car_deep_q.py	/^    baseline_optimizer=None,$/;"	kind:variable	line:31
+batching_capacity	../cart_pole_ppo.py	/^    batching_capacity=4096,$/;"	kind:variable	line:20
+batching_capacity	../mountain_car_deep_q.py	/^    batching_capacity=4096,$/;"	kind:variable	line:20
+cart_pole_ppo.py	../cart_pole_ppo.py	1;"	kind:file	line:1
+discount	../cart_pole_ppo.py	/^    discount=0.99,$/;"	kind:variable	line:27
+discount	../mountain_car_deep_q.py	/^    discount=0.99,$/;"	kind:variable	line:27
+entropy_regularization	../cart_pole_ppo.py	/^    entropy_regularization=0.01,$/;"	kind:variable	line:28
+entropy_regularization	../mountain_car_deep_q.py	/^    entropy_regularization=0.01,$/;"	kind:variable	line:28
+env	../cart_pole_ppo.py	/^env = OpenAIGym('CartPole-v0', visualize=False)$/;"	kind:variable	line:9
+env	../mountain_car_deep_q.py	/^env = OpenAIGym('MountainCar-v0', visualize=True)$/;"	kind:variable	line:9
+env	../random_movement_car.py	/^env = gym.make("CarRacing-v0")$/;"	kind:variable	line:3
+env	../random_movement_mountain.py	/^env = gym.make("MountainCar-v0")$/;"	kind:variable	line:3
+ep	../cart_pole_ppo.py	/^    ep=runner.episode,$/;"	kind:variable	line:55
+ep	../mountain_car_deep_q.py	/^    ep=runner.episode,$/;"	kind:variable	line:55
+episode_finished	../cart_pole_ppo.py	/^def episode_finished(r):$/;"	kind:function	line:41
+episode_finished	../mountain_car_deep_q.py	/^def episode_finished(r):$/;"	kind:function	line:41
+gae_lambda	../cart_pole_ppo.py	/^    gae_lambda=None,$/;"	kind:variable	line:32
+gae_lambda	../mountain_car_deep_q.py	/^    gae_lambda=None,$/;"	kind:variable	line:32
+learning_rate	../cart_pole_ppo.py	/^        learning_rate=1e-3$/;"	kind:variable	line:23
+learning_rate	../mountain_car_deep_q.py	/^        learning_rate=1e-3$/;"	kind:variable	line:23
+likelihood_ratio_clipping	../cart_pole_ppo.py	/^    likelihood_ratio_clipping=0.2,$/;"	kind:variable	line:33
+likelihood_ratio_clipping	../mountain_car_deep_q.py	/^    likelihood_ratio_clipping=0.2,$/;"	kind:variable	line:33
+mountain_car_deep_q.py	../mountain_car_deep_q.py	1;"	kind:file	line:1
+network	../cart_pole_ppo.py	/^    network=network_spec,$/;"	kind:variable	line:19
+network	../mountain_car_deep_q.py	/^    network=network_spec,$/;"	kind:variable	line:19
+network_spec	../cart_pole_ppo.py	/^network_spec = [$/;"	kind:variable	line:11
+network_spec	../mountain_car_deep_q.py	/^network_spec = [$/;"	kind:variable	line:11
+obs	../random_movement_car.py	/^obs = env.reset()$/;"	kind:variable	line:4
+obs	../random_movement_mountain.py	/^obs = env.reset()$/;"	kind:variable	line:4
+optimization_steps	../cart_pole_ppo.py	/^    optimization_steps=10,$/;"	kind:variable	line:25
+optimization_steps	../mountain_car_deep_q.py	/^    optimization_steps=10,$/;"	kind:variable	line:25
+random_movement_car.py	../random_movement_car.py	1;"	kind:file	line:1
+random_movement_mountain.py	../random_movement_mountain.py	1;"	kind:file	line:1
+runner	../cart_pole_ppo.py	/^runner = Runner(agent=agent, environment=env)$/;"	kind:variable	line:37
+runner	../mountain_car_deep_q.py	/^runner = Runner(agent=agent, environment=env)$/;"	kind:variable	line:37
+scope	../cart_pole_ppo.py	/^    scope='ppo',$/;"	kind:variable	line:26
+scope	../mountain_car_deep_q.py	/^    scope='ppo',$/;"	kind:variable	line:26
+states	../cart_pole_ppo.py	/^    states=env.states,$/;"	kind:variable	line:17
+states	../mountain_car_deep_q.py	/^    states=env.states,$/;"	kind:variable	line:17
+step_optimizer	../cart_pole_ppo.py	/^    step_optimizer=dict($/;"	kind:variable	line:21
+step_optimizer	../mountain_car_deep_q.py	/^    step_optimizer=dict($/;"	kind:variable	line:21
+type	../cart_pole_ppo.py	/^        type='adam',$/;"	kind:variable	line:22
+type	../mountain_car_deep_q.py	/^        type='adam',$/;"	kind:variable	line:22
