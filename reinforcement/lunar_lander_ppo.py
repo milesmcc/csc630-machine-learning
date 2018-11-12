@@ -8,7 +8,11 @@ from tensorforce.contrib.openai_gym import OpenAIGym
 import matplotlib.pyplot as plt
 import sys
 
-env = OpenAIGym('LunarLander-v2', visualize=False)
+viz = False
+if "--show" in sys.argv:
+    viz = True
+
+env = OpenAIGym('LunarLander-v2', visualize=viz, monitor="monitor/", monitor_safe=False, monitor_video=True)
 
 training_progress = []
 
@@ -21,12 +25,11 @@ agent = PPOAgent(
         dict(type='dense', size=32, activation='relu'),
         dict(type='dense', size=32, activation='relu'),
     ],
-    batching_capacity=4096,
+    batching_capacity=32,
     step_optimizer=dict(
         type='adam',
         learning_rate=1e-3
     ),
-    optimization_steps=10,
     scope='ppo',
     discount=0.99,
     entropy_regularization=0.01,
@@ -50,20 +53,22 @@ def episode_finished(r):
                                                  reward=r.episode_rewards[-1]))
     training_progress.append(r.episode_rewards[-1])
     if r.episode % 100 == 0:
-        env.visualize = True
+        if not viz:
+            env.visualize = True
         agent.save_model(directory="models/")
-        plt.plot(range(len(training_progress)), training_progress)
-        plt.title("Lunar Lander Training Progress\n4-layer 32-neurons/layer ReLu")
+        plt.scatter(range(len(training_progress)), training_progress, s=1)
+        plt.title("Lunar Lander Training Progress\n5-layer 32-neurons/layer ReLU")
         plt.xlabel("Episodes")
         plt.ylabel("Reward")
         plt.savefig(fname="training_progress.png")
     else:
-        env.visualize = False
+        if not viz:
+            env.visualize = False
     return True
 
 
 # Start learning
-runner.run(max_episode_timesteps=350, episode_finished=episode_finished)
+runner.run(max_episode_timesteps=10000, episode_finished=episode_finished)
 runner.close()
 
 # Print statistics
