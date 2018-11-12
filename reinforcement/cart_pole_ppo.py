@@ -8,7 +8,7 @@ from tensorforce.contrib.openai_gym import OpenAIGym
 import matplotlib.pyplot as plt
 import sys
 
-env = OpenAIGym('CartPole-v0', visualize=False, monitor="monitor/", monitor_safe=False, monitor_video=True)
+env = OpenAIGym('CartPole-v0', visualize=False)
 
 training_progress = []
 
@@ -50,7 +50,7 @@ def episode_finished(r):
         env.visualize = True
         agent.save_model(directory="models/")
         plt.scatter(range(len(training_progress)), training_progress, s=1)
-        plt.title("Cart Pole Training Progress\n5-layer 32-neurons/layer ReLU")
+        plt.title("Cart Pole Training Progress\n3-layer 10-neurons/layer ReLU")
         plt.xlabel("Episodes")
         plt.ylabel("Reward")
         plt.savefig(fname="training_progress.png")
@@ -58,5 +58,5 @@ def episode_finished(r):
         env.visualize = False
     return True
 
-runner.run(max_episode_timesteps=350, episodes=5000, episode_finished=episode_finished)
+runner.run(max_episode_timesteps=200, episodes=5000, episode_finished=episode_finished)
 runner.close()
